@@ -6,7 +6,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import pageObject.pages.BasePage;
 import pageObject.pages.HomePage;
-import pageObject.pages.SearchResultsPage;
 
 public class TestObject {
 
