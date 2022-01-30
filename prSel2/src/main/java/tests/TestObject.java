@@ -27,6 +27,19 @@ public class TestObject {
     }
 
     @Severity(SeverityLevel.CRITICAL)
+    @Test(description = "Test broken")
+    public void brokenTest() {
+        String query = "java";
+        WebDriverManager.chromedriver().setup();
+
+        new HomePage(new ChromeDriver())
+                .openGoogle()
+                .search(query)
+                .clickProductByIndex(0)
+                .clickDownloadLink();
+    }
+
+    @Severity(SeverityLevel.TRIVIAL)
     @Test(description = "Test failed")
     public void failedTest() {
         String query = "java";
@@ -36,7 +49,7 @@ public class TestObject {
                 .openGoogle()
                 .search(query)
                 .clickProductByIndex(0)
-                .clickDownloadLink();
+                .checkDownloadLinkPrsent();
     }
 
     @AfterMethod(description = "Quit driver")

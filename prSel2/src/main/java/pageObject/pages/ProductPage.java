@@ -1,9 +1,12 @@
 package pageObject.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import static org.testng.Assert.assertTrue;
 
 public class ProductPage extends BasePage {
 
@@ -22,8 +25,15 @@ public class ProductPage extends BasePage {
         return title.getText();
     }
 
+    @Step("Click Download link")
     public CartPage clickDownloadLink() {
         downloadLink.click();
         return new CartPage(driver);
+    }
+
+    @Step("Check Download link present")
+    public ProductPage checkDownloadLinkPrsent() {
+        assertTrue(downloadLink.isDisplayed(), "Download link is not present");
+        return this;
     }
 }
