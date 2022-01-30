@@ -42,14 +42,14 @@ public class TestObject {
     @Severity(SeverityLevel.TRIVIAL)
     @Test(description = "Test failed")
     public void failedTest() {
-        String query = "java";
+        String query = "selenium";
         WebDriverManager.chromedriver().setup();
 
         new HomePage(new ChromeDriver())
                 .openGoogle()
                 .search(query)
                 .clickProductByIndex(0)
-                .checkDownloadLinkPrsent();
+                .checkDownloadLinkText();
     }
 
     @AfterMethod(description = "Quit driver")

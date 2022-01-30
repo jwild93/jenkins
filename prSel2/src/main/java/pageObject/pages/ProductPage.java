@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class ProductPage extends BasePage {
@@ -32,8 +33,9 @@ public class ProductPage extends BasePage {
     }
 
     @Step("Check Download link present")
-    public ProductPage checkDownloadLinkPrsent() {
-        assertTrue(downloadLink.isDisplayed(), "Download link is not present");
+    public ProductPage checkDownloadLinkText() {
+        assertEquals(downloadLink.getText(), "New text",
+                "Download link text is not 'New text'");
         return this;
     }
 }
